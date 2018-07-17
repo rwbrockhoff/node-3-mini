@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './HistoryModal.css';
 
+
 export default class HistoryModal extends Component {
   constructor(props) {
     super(props);
@@ -9,10 +10,13 @@ export default class HistoryModal extends Component {
       historyMessages: []
     };
   }
-  componentDidMount() {
-    axios.get('/api/messages/history').then(res => {
-      this.setState({ historyMessages: res.data });
-    });
+
+  componentDidMount(){
+    axios.get('/api/messages/history').then( (res) => {
+      this.setState({
+        historyMessages: res.data
+      })
+    })
   }
 
   render() {
